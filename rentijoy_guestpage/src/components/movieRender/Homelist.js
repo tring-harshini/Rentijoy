@@ -39,7 +39,6 @@ export  function listRenderFunction(props){
 export default  function Home() {   
 const fetching={ moviename: "Fetching", year: "Fetching",id:'1'}
 const notFetched=[fetching,fetching,fetching,fetching,fetching]
-const[latest_and_trending,setlatest_and_trending_home]=useState([notFetched])
 const[action_home,setaction_home]=useState([notFetched])
 const[kids_home,setkids_home]=useState([notFetched])
 const[thriller_home,setthriller_home]=useState([notFetched])
@@ -47,7 +46,6 @@ const[crime_home,setcrime_home]=useState([notFetched])
 const[comedy_home,setcomedy_home]=useState([notFetched])
 const[scifi_home,setscifi_home]=useState([notFetched])
 const listOfMovies=[
-{"listTitle":"Latest and trending","listRoute":"latest","listobject":latest_and_trending,"id":"list1"},
 {"listTitle":"Action","listRoute":"action","listobject":action_home,"id":"list2"},
 {"listTitle":"Kids","listRoute":"kids","listobject":kids_home,"id":"list3"},
 {"listTitle":"Thriller","listRoute":"thriller","listobject":thriller_home,"id":"list4"},
@@ -55,9 +53,6 @@ const listOfMovies=[
 {"listTitle":"Comedy","listRoute":"comedy","listobject":comedy_home,"id":"list6"},
 {"listTitle":"Sci-Fi","listRoute":"sci-fi","listobject":scifi_home,"id":"list7"}]
 useEffect(()=>{
-    fetchMovieList('latest&limit=5')
-    .then(resp =>setlatest_and_trending_home(resp.data))
-    .catch(e=>console.log(e));
     fetchMovieList('action&limit=5')
     .then(resp => {setaction_home(resp.data);})
     .catch(e=>{console.log(e)});

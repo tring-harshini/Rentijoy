@@ -7,28 +7,6 @@ import MovieBasic from './movie/basic'
 import './Home.css'
 
 /****************  Function to render details of cast inside the Single movie detail*****************/
-function cast(props){
-    if(props.movieCast)
-    return(
-    <div className='cast-detail'>
-          <div className="block">
-            <p className="small-header">Actors</p>
-            <p>{props.movieCast.Actors}</p>
-          </div>
-          <div className="block">
-            <p className="small-header">Producer</p>
-            <p>{props.movieCast.Producers}</p>
-          </div>
-          <div className="block">
-            <p className="small-header">Director</p>
-            <p>{props.movieCast.Director}</p>
-          </div>
-          <div className="block">
-            <p className="small-header">Writer</p>
-            <p>{props.movieCast.Writer}</p>
-        </div> 
-    </div>)
-}
 
 /****************  Function to render Single Movie detail with buy rent option*****************/
 export function SingleMovie(){
@@ -42,7 +20,7 @@ export function SingleMovie(){
     .catch(e=>{console.log(e)})
     },[movieID])
     return(
-        <div className="movie-basic">
+        <div className="movie-detailed-page">
         {/* <div className="poster">
           <img alt="movie" src={movie.Poster}></img>
         </div>

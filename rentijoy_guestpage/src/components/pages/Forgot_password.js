@@ -4,7 +4,7 @@ import "./signlog.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
- function Forgot_password(){
+ function Forgotpassword(){
      let navigate=useNavigate();
     function handleSubmit(){  
        // e.preventDefault();
@@ -31,7 +31,12 @@ import { useNavigate } from 'react-router';
         .catch(function(err){
             console.log(err);
         })
+    }else{
+        
+            confirmpassword.nextElementSibling.innerHTML="Password mismatch"
+          
     }
+      
     }
     function onEmpty(p){
         if(p.value===""){
@@ -44,6 +49,12 @@ import { useNavigate } from 'react-router';
            p.nextElementSibling.innerHTML="Invalid mail";  
         }
      }
+  
+     function cancle(){
+        alert("cancel")
+        navigate("/login")
+      }
+      
 
          return(
              <div className="forgot">
@@ -66,10 +77,11 @@ import { useNavigate } from 'react-router';
                   </div><br/>
                  <div> 
                  <button className="btn1" onClick={handleSubmit} type="submit">submit</button>
+                 <button className="btn1" onClick={cancle}>Cancel</button>
                  </div>
                  </div>
              </div>
          )
  }
   
- export default Forgot_password
+ export default Forgotpassword

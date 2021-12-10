@@ -31,7 +31,7 @@ function Container() {
     resetTimeout();
     timeoutRef.current = setTimeout(() =>
       setIndex((prevIndex) => prevIndex === slideimage.length - 1 ? 0 : prevIndex + 1), delay);
-    return () => {resetTimeout();};
+       return () => {resetTimeout();};
   }, [index]);
 React.useEffect(()=>{
   data()
@@ -41,17 +41,27 @@ React.useEffect(()=>{
       <div className='hero-container'>
         <h1>RENT AND ENJOY</h1>
         <p>What are you waiting for?</p>
-        <div className='hero-btns'>
+        {localStorage.getItem('log')==='false'&&(<div className='hero-btns'>
           <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>
             GET STARTED
           </Button>
-        </div>
+        </div>)}
        <div className="slideshow">
         <div className="slideshowSlider" style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
           {
           slideimage.map((slideimage,index) => (
             <div className="slide" key={index} >
-              <img alt='slide' src={slideimage.Poster}></img>
+              <div className='master-poster'>
+                <div className='poster-image'>
+                 <img alt='slide' src={slideimage.Poster}></img>
+                </div>
+                <div className='poster-content'>
+                    <h2 className='poster-content-Header'>{slideimage.MovieName}</h2>
+                    <p className='poster-content-contents'>Rating: {slideimage.Rating} <i id="star" className="fas fa-star" /></p>
+                    <p className='poster-content-contents'>Language: {slideimage.Language}</p>
+                </div>
+              </div>
+              
             </div>
           ))
           }

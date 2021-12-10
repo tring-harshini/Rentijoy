@@ -4,6 +4,7 @@ import image from './image/image.jpeg';
 import './signlog.css';
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
+import Navbar from '../Navbar';
 function Login(){
   let navigate=useNavigate();
   function handleSubmit(){   
@@ -30,11 +31,14 @@ function Login(){
     })
   }
 function cancle(){
-     
+  alert("cancel")
+  navigate("/")
 }
 
     return (
+<><Navbar/>
       <div className="Login">
+
                       <img src={image} alt=" "></img>
                       <div>
                       <h2>Login </h2>
@@ -52,11 +56,12 @@ function cancle(){
                        <div className="forgot_password">
                        <Link id="link" to="/forgot_password">Forgot Password?</Link>
                        </div>
-                       <div className="button">
+                       <div className="button1">
                        <button className="btn1" onClick={handleSubmit} >Submit</button>
                        <button className="btn1" onClick={cancle}>Cancel</button>
                        </div>
       </div>
+      </>
     );
   }
 

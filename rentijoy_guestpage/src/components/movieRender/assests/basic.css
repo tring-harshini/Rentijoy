@@ -1,5 +1,5 @@
 .movie-basic{
-    width: 100%;
+    width: 80vw;
     display: flex;
     flex-direction: row;
 }
@@ -35,4 +35,8 @@ text-align: center;
 text-decoration: none;
 display: inline-block;
 font-size: 16px;
+}
+.movie-basic-conatainer{
+    display: flex;
+    justify-content: center;
 }
