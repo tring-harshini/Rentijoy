@@ -89,7 +89,7 @@ var MovieImage = async(req, resp) => {
     try{
     
     var moviesList = await movie.findAll({
-        limit: 3, order: [['Year', 'DESC']],attributes: ["Poster"]
+        limit: 3, order: [['Year', 'DESC']],attributes: ["Poster","MovieName","Rating","Language"]
     })
     return resp.status(200).json(moviesList);
 }catch(e){
